@@ -1,0 +1,241 @@
+/**
+ * Stylesheet
+ *
+ * @namespace LUNGO
+ * @class Layout
+ *
+ * @author Javier Jimenez Villar <javi@tapquo.com> || @soyjavi
+ */
+
+@import "mixins.less";
+
+@defaultTrasition : @easeOutSine;
+
+/* @group <section> */
+section {
+	position: absolute; /* position: fixed on iOS5 & Android 4 */
+	left:  0px;
+	top:  0px;
+	width: 100%;
+	height: 100%;
+	
+	.transform(translate3d(100%, 0, 0));
+	//.transform(translate3d(320px, 0, 0));
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: -webkit-transform 250ms @defaultTrasition;
+	
+	&:first-child, &.show {	
+		.transform(translate3d(0%, 0, 0)); }
+	&.hide { 
+		.transform(translate3d(-100%, 0, 0)); }
+}
+/* @end */
+
+
+/* @group <header> & <footer> */
+header, footer  {
+	position: absolute;
+	left: 0px;
+	width: 100%;
+	height: 38px;
+	display: block;
+	
+	z-index: 2;
+	line-height: 38px;
+}
+
+header  {
+	top: 0px
+}
+
+footer  {
+	bottom:0px;
+}
+
+header .title, footer .title  {
+	margin: 0 8px;	
+	float: left;	
+	z-index: -1;
+	font-size: 1.15em;
+	font-weight: bold;
+}
+
+header .title {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	text-align: center;
+	display: inline-block;
+}
+
+section header a.button, section footer a.button  {
+	margin: 3px 3px auto 4px;
+}
+
+section header a.button.icon, section footer a.button.icon  {
+	width: 17px;
+}
+/* @end */
+
+/* @group <nav> */
+
+nav {
+	height: inherit;
+	text-align: center;
+    	
+	& a {
+		padding: 0 6px;
+		z-index: 1000;
+		float: left;
+		
+		& .icon {
+		    font-size: 2.1em;
+		    line-height: 38px;
+		    display: inline-block;
+		}
+		
+		& abbr, .description {
+    		position: relative;
+			bottom: 5px;
+			margin-left: 2px;
+			display: none;
+			font-size: 1.0em;
+		}
+		
+		&.current abbr { display: inline; }
+	}
+	
+	& .bubble {
+    	position: relative;
+	    top:  -16px;
+	    left: -10px;
+	    margin-right: -20px;  
+	}
+}
+
+.toolbar {
+	height: 48px;
+	display: block;
+	
+	& nav { display: block; }
+	& a { padding: 0; }
+	& .icon {
+    	display: block;
+		font-size: 2.5em;
+		line-height: 48px;
+	}
+	
+	& .bubble {
+    	top:  -54px;
+	    left: 6px;
+	    padding: 1px 4px;
+	}
+}
+/* @end */
+
+/* @group <aside> */
+aside {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	height: auto;
+	width: 256px;
+	opacity: 0;
+	z-index: 0;
+}
+
+	aside.show {
+		opacity: 1;
+	}
+	
+	header ~ aside { padding-top: 40px; }
+	
+	footer ~ aside { padding-bottom: 40px; }
+	
+	aside ~ article {
+		.transform(translate3d(0px, 0, 0));
+		-webkit-transition: -webkit-transform 250ms @defaultTrasition;
+	}
+
+	aside a {
+		display: block;
+		width: 244px;
+		height: 40px;
+		padding: 0 6px;
+	
+		font-size: 1.1em;
+		font-weight: bold;
+		line-height: 40px;
+	}
+		aside .icon {
+			width: 28px;
+			height: 28px;
+			float: left;
+			margin: 8px 6px 0 0;
+	
+		    font-size: 1.9em;
+		    line-height: 1.0em;
+		    text-align: center;
+		}
+		aside .anchor {
+			font-weight: bold;
+	    	padding: 3px 10px 4px;
+		}
+		aside .bubble {
+	    	float: right;
+			margin: 12px 4px 0 0;
+		}
+	
+		@media handheld, only screen and (min-width: 768px) {
+			[data-target="aside"] { display: none !important; }		
+			aside { opacity: 1; }		
+			aside ~ article{
+				width: auto !important;
+		    	left: 256px;
+		    	right:  0px !important;
+			}
+		}
+/* @end */
+
+/* @group <article> */
+article {
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	top: 0px;
+	bottom: 0px;
+	display: block;
+	z-index: 0;
+	opacity: 0;
+}
+	
+	header ~ article { top: 40px; }	
+	
+	footer ~ article { bottom: 40px; }
+
+	article.current {
+		z-index: 1;
+		opacity: 1;
+	}
+	
+	article.aside { .transform(translate3d(256px, 0, 0)); }
+	
+	@media handheld, only screen and (min-width: 768px) {
+		article.aside { .transform(translate3d(0px, 0, 0)); }
+	}
+	
+	article .title {
+		font-size: 1.1em;
+		 margin: 0px 0 4px;
+	}
+		
+		article .title .icon { margin-right: 4px; }
+	
+	article .text {
+		margin: 4px 0 8px;
+		display: block;
+    	font-size: 0.9em;
+    	font-weight: normal;
+    	line-height: 1.4em;
+	}			
+/* @end */

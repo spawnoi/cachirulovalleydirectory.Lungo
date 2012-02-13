@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CachiruloValley</title>
+    <meta name="description" content="">
+    <meta name="author" content="Aplicación por CachiruloValley. Lungo framework por Javier Jiménez Villar (@soyjavi)">
+    <!-- Mobile viewport optimization http://goo.gl/b9SaQ -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- For iPhone 4 with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/icon@2x.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/icon-72.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/icon.png">
+    <link rel="apple-touch-startup-image" href="assets/images/default.png">
+    <!-- Main Stylesheet -->
+
+    <link rel="stylesheet" href="../../src/stylesheets/css/Lungo.base.css">
+    <link rel="stylesheet" href="../../src/stylesheets/css/Lungo.layout.css">
+    <link rel="stylesheet" href="../../src/stylesheets/css/Lungo.layout.list.css">
+    <link rel="stylesheet" href="../../src/stylesheets/css/Lungo.widgets.css">
+    <link rel="stylesheet" href="../../src/stylesheets/css/Lungo.widgets.splash.css">
+    <link rel="stylesheet" href="../../src/stylesheets/css/Lungo.widgets.button.css">
+    <link rel="stylesheet" href="../../src/stylesheets/css/Lungo.widgets.form.css">
+    <link rel="stylesheet" href="../../src/stylesheets/css/Lungo.widgets.colour.css">
+    <link rel="stylesheet" href="../../src/stylesheets/css/Lungo.widgets.icon.css">
+    <link rel="stylesheet" href="../../src/stylesheets/css/Lungo.theme.cachirulo.css">
+    <!-- App Stylesheet -->
+    <link rel="stylesheet" href="assets/stylesheets/app.css">
+
+</head>
+
+<body class="app">
+
+    <!-- ============================= kitchen-sink ============================= -->
+    <section id="kitchen-sink">
+        <header data-title="Cachirulo Valley">
+            <a href="#" class="button" data-target="aside" data-icon="items"></a>
+        </header>
+
+        <aside id="kitchen-sink-scroll" class="scrollable">
+            <div>
+                <a href="#welcome" data-target="article" class="current" data-icon="wifi">Cachirulo Valley</a>
+                <a href="#twitter" data-target="article" data-icon="group">Twitter</a>
+                <a href="#calendar" data-target="article" data-icon="group"  data-count="2">Upcoming events</a>
+                <a href="#blog" data-target="article" data-icon="group">Blog entries</a>
+                <a href="#directory_cats" data-target="section" data-icon="user" data-count="5">Directorio</a>
+            </div>
+        </aside>
+
+        <!-- ============================= welcome ============================= -->
+
+        <article id="welcome" class="list scrollable">
+            <div class="indented">
+                <h1 class="title" data-icon="home">Bienvenidos a CachiruloValley (logo aqui)</h1>
+                <p class="text">Esta aplicación ha sido creada con Lungo.js.</p>
+                <p class="text">
+                    The first <strong>Mobile Framework</strong> that uses the actual features of #HTML5, #CSS3 and #JavaScript.</p>
+                <p class="text">
+                    The main premise in Lungo is to create a semantic structure in the whole project, starting from the markup language HTML, through a well organized CSS< and ending with the JavaScript API</p>
+            </div>
+        </article>
+
+        <!-- ============================= twitter ============================= -->
+
+        <article id="twitter" class="list scrollable">
+            <div class="indented">
+                <h1 class="title" data-icon="home">Last tweets about CachiruloValley</h1>
+                <p class="text">(TODO)</p>
+            </div>
+        </article>
+
+        <!-- ============================= calendar ============================= -->
+
+        <article id="calendar" class="list scrollable">
+            <div class="indented">
+                <h1 class="title" data-icon="home">Upcoming events</h1>
+                <p class="text">(TODO)</p>
+            </div>
+        </article>
+
+        <!-- ============================= blog entries ============================= -->
+
+        <article id="blog" class="list scrollable">
+            <div class="indented">
+                <h1 class="title" data-icon="home">Blog entries</h1>
+                <p class="text">(TODO)</p>
+            </div>
+        </article>
+
+	</section>
+
+    <!-- ============================= buttons extra ============================= -->
+
+    <section id="buttons-extra">
+        <header data-back="home" data-title="Example of buttons">
+            <a href="#" class="button red onright" data-icon="add">With icon</a>
+            <a href="#" class="button arcticblue onright">Text</a>
+        </header>
+
+        <footer>
+            <a href="#" class="button blue onleft">Text</a>
+            <a href="#" class="button yellow onleft" data-icon="left"></a>
+            <a href="#" class="button orange onright" data-icon="right">onright</a>
+        </footer>
+
+        <article></article>
+    </section>
+
+
+    <!-- ============================= directory cats ============================= -->
+
+    <section id="directory_cats">
+        <header data-back="home" data-title="Categorías">
+        </header>
+        <article id="cats" class="list">
+        	<ul id="directory_cats_list"></ul>
+        </article>
+    </section>
+
+    <!-- ============================= lists ============================= -->
+
+    <section id="directory_professionals">
+        <header data-back="home" data-title="Programadores">
+        </header>
+        <article id="list-plain" class="list"></article>
+    </section>
+
+    <!-- Third parties dependencies -->
+    <script src="../../src/lib/QuoJS.js"></script>
+    <script src="../../src/lib/iscroll-lite.js"></script>
+
+    <!-- LungoJS Libraries (Development mode)-->
+    <script src="../../src/Lungo.js"></script>
+
+    <script src="../../src/Lungo.App.js" ></script>
+    <script src="../../src/Lungo.Core.js"></script>
+    <script src="../../src/Lungo.Dom.js"></script>
+    <script src="../../src/Lungo.Service.js"></script>
+    <script src="../../src/router/Lungo.Router.js"></script>
+    <script src="../../src/router/Lungo.Router.History.js" ></script>
+    <script src="../../src/view/Lungo.View.Resize.js"></script>
+    <script src="../../src/view/Lungo.View.Article.js" ></script>
+    <script src="../../src/view/Lungo.View.Aside.js" ></script>
+    <script src="../../src/view/Lungo.View.Scroll.js"></script>
+    <script src="../../src/view/Lungo.View.Element.js"></script>
+    <script src="../../src/view/Lungo.View.Template.js"></script>
+    <script src="../../src/view/Lungo.View.Template.Binding.js"></script>
+    <script src="../../src/view/Lungo.View.Template.List.js"></script>
+    <script src="../../src/data/Lungo.Data.Cache.js"></script>
+    <script src="../../src/data/Lungo.Data.Sql.js"></script>
+    <script src="../../src/data/Lungo.Data.Storage.js"></script>
+    <script src="../../src/attributes/Lungo.Attributes.Data.js"></script>
+    <script src="../../src/boot/Lungo.Boot.js"></script>
+    <script src="../../src/boot/Lungo.Boot.Stats.js" ></script>
+    <script src="../../src/boot/Lungo.Boot.Layout.js"></script>
+    <script src="../../src/boot/Lungo.Boot.Events.js"></script>
+    <script src="../../src/boot/Lungo.Boot.Data.js"></script>
+    <script src="../../src/boot/Lungo.Boot.Section.js"></script>
+    <script src="../../src/boot/Lungo.Boot.Article.js"></script>
+
+    <!-- LungoJS - Sandbox App -->
+    <script src="app/app.js"></script>
+    <script src="app/events.js"></script>
+    <script src="app/view.js"></script>
+    <script src="app/data.js"></script>
+    <script src="app/services.js"></script>
+
+
+
+</body>
+</html>
