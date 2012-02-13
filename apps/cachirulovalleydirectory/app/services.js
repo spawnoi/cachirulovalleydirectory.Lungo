@@ -1,5 +1,4 @@
 App.Services = (function(lng, App, undefined) {
-
 	var load_categories = function(){
 		lng.Service.Settings.timeout = 2500;
         lng.Service.Settings.dataType = 'json';
@@ -15,7 +14,14 @@ App.Services = (function(lng, App, undefined) {
         lng.Service.json(url, parameters,
             function(response) {
 				var cats = response.cats;
-		        lng.View.Template.Binding.create('directory_cats_list', 'cats-tmp', cats);
+
+				var config = {
+				    container_id: 'directory_cats_list',
+				    template_id: 'cats-tmp',
+				    data: cats
+				};
+
+				lng.View.Template.List.create(config);
             }
         );
 	}
@@ -36,11 +42,19 @@ App.Services = (function(lng, App, undefined) {
         lng.Service.json(url, parameters,
             function(data) {
 				var profiles = data.users;
-		        lng.View.Template.Binding.create('list-plain', 'profile-tmp', profiles);
+				var config = {
+				    container_id: 'list-plain',
+				    template_id: 'profile-tmp',
+				    data: profiles
+				};
+
+				lng.View.Template.List.create(config);
 				callback(null, data)
             }
         );
     };
+	
+	//load_categories();
 	
     return {
 		load_categories : load_categories,
