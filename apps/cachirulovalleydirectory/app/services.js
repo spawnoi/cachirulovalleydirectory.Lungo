@@ -1,4 +1,5 @@
 App.Services = (function(lng, App, undefined) {
+
 	var load_categories = function(){
 		lng.Service.Settings.timeout = 2500;
         lng.Service.Settings.dataType = 'json';
@@ -40,8 +41,6 @@ App.Services = (function(lng, App, undefined) {
             }
         );
     };
-	
-	load_categories();
 	
     return {
 		load_categories : load_categories,
