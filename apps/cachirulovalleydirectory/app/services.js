@@ -19,7 +19,7 @@ App.Services = (function(lng, App, undefined) {
         );
 	}
 
-    var load_users_from_cat = function(id_cat) {
+    var load_users_from_cat = function(id_cat, callback) {
         lng.Service.Settings.timeout = 2500;
         lng.Service.Settings.dataType = 'json';
         lng.Service.Settings.error = function() {
@@ -33,12 +33,10 @@ App.Services = (function(lng, App, undefined) {
         };
 
         lng.Service.json(url, parameters,
-            function(response) {
-				console.log (response)
-				var profiles = response.users;
-
+            function(data) {
+				var profiles = data.users;
 		        lng.View.Template.Binding.create('list-plain', 'profile-tmp', profiles);
-				lng.Router.section('directory_professionals');
+				callback(null, data)
             }
         );
     };
